@@ -4,18 +4,18 @@ import sys
 import select
 import queue
 
-def server3(host_ip, port):
+def server4(host_ip, port):
 
     try: 
-        server3_socket = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
+        server4_socket = sk.socket(sk.AF_INET, sk.SOCK_STREAM)
         print("Socket created")
     except sk.error as err:
         print("Socket creation failed with error: ", str(err))
         sys.exit()
-    server3_socket.setblocking(0)
+    server4_socket.setblocking(0)
     
     try:
-        server3_socket.bind((host_ip, port))
+        server4_socket.bind((host_ip, port))
         print("Socket binded with ip:", str(host_ip), "port:", str(port))
     except sk.error as err:
         if err.errno == errno.EADDRINUSE:
@@ -25,10 +25,10 @@ def server3(host_ip, port):
             print("Socket binding failed with error: ", str(err))
             sys.exit()
             
-    server3_socket.listen(5)
+    server4_socket.listen(5)
     print("Socket is listening")
     
-    inputs = [server3_socket]
+    inputs = [server4_socket]
     outputs = []
     msg_q = {}
 
@@ -38,7 +38,7 @@ def server3(host_ip, port):
         
         for server in readable:
             
-            if server is server3_socket:
+            if server is server4_socket:
                 (conn, (address, port_conn)) = server.accept()
                 print("connection from:", str(address), "port:", str(port_conn)) 
                 conn.setblocking(0)
@@ -85,4 +85,4 @@ host_ip = input("Enter host IP: ")
 # host_ip = sk.gethostname()
 port = int(input("Enter port: "))
 
-server3(host_ip, port)
+server4(host_ip, port)

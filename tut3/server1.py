@@ -43,7 +43,7 @@ def server1(host_ip, port):
         except NameError as err:
             msg="Please write an expression"
         except ZeroDivisionError as err:
-            msg = str(err)
+            msg="Do not divide with 0"
 
         conn.send(str(msg).encode())
         

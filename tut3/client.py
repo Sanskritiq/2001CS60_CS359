@@ -51,8 +51,8 @@ def client(host_ip, port):
         
     client_socket.close()
 
-# host_ip = input("Enter host IP: ")
-host_ip = sk.gethostname()
+host_ip = input("Enter host IP: ")
+# host_ip = sk.gethostname()
 port = int(input("Enter port: "))
 
 client(host_ip, port)

@@ -29,6 +29,8 @@ class conn_thread(threading.Thread):
                 msg="Invalid syntax"
             except NameError as err:
                 msg="Please write an expression"
+            except ZeroDivisionError as err:
+                msg="Do not divide with 0"
 
             self.conn.send(str(msg).encode())
             

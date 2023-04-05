@@ -58,6 +58,8 @@ def server3(host_ip, port):
                         msg="Invalid syntax"
                     except NameError as err:
                         msg="Please write an expression"
+                    except ZeroDivisionError as err:
+                        msg="Do not divide with 0"
                     msg_q[server].put(msg)
                     
                     if server not in outputs:
