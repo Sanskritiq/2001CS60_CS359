@@ -1,0 +1,12 @@
+.messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.sent-time {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 75%;
+}
